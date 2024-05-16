@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {computed, nextTick, ref, watchEffect}           from 'vue';
+import {computed, ref, watchEffect}                   from 'vue';
 import {useDark, useToggle, useWindowScroll, watchOnce} from "@vueuse/core";
 import {ChevronDown, Moon, Sun}                         from 'lucide-vue-next';
 
@@ -44,9 +44,9 @@ const restore = () => {
   isDone.value = false;
   y.value = 0;
 
-  setTimeout(()=>{
+  setTimeout(() => {
     watchIsDone();
-  },500)
+  }, 500)
 
 }
 </script>
@@ -58,7 +58,7 @@ const restore = () => {
     :class="{small:isSmall}"
     ref="el"
   >
-        <div class="container mx-auto flex justify-between items-center px-4 h-full w-full">
+    <div class="container mx-auto flex justify-between items-center px-4 h-full w-full">
       <div class="w-full h-full flex items-center">
         <div
           @click="restore()"
