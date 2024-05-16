@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {computed, ref, watchEffect}                   from 'vue';
+import {computed, ref, watchEffect}                     from 'vue';
 import {useDark, useToggle, useWindowScroll, watchOnce} from "@vueuse/core";
 import {ChevronDown, Moon, Sun}                         from 'lucide-vue-next';
 
@@ -28,7 +28,6 @@ watchEffect(() => shouldShrink.value = y.value > 80)
 
 const watchIsDone = () => {
   watchOnce(isSmall, () => {
-    console.log("watch", isSmall.value, shouldShrink.value, y.value)
     if (isSmall) {
       isDone.value = true;
       y.value = 0;
