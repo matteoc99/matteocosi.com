@@ -1,0 +1,135 @@
+@import "css/buttons.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+/* @layer base { */
+/*   :root { */
+/*     --background: #ffffff; !* Light gray background *! */
+/*     --foreground: #000000; !* Black foreground for text *! */
+/*     --muted: #f5f5f5; !* Neutral gray for muted text or elements *! */
+/*     --muted-foreground: #606060; !* Darker gray for muted foreground *! */
+/*     --popover: #ffffff; !* White for popover backgrounds *! */
+/*     --popover-foreground: #000000; !* Black for popover text *! */
+/*     --card: #ffffff; !* White for card backgrounds *! */
+/*     --card-foreground: #000000; !* Black for card text *! */
+/*     --border: #e0e0e0; !* Light gray for borders *! */
+/*     --input: #ffffff; !* White for input backgrounds *! */
+/*     --primary: #1E90FF; !* Primary bright blue *! */
+/*     --primary-foreground: #ffffff; !* White for primary text *! */
+/*     --secondary: #4682B4; !* Secondary subdued blue *! */
+/*     --secondary-foreground: #ffffff; !* White for secondary text *! */
+/*     --accent: #00BFFF; !* Accent blue *! */
+/*     --accent-foreground: #ffffff; !* White for accent text *! */
+/*     --destructive: #FF6347; !* Tomato red for destructive actions *! */
+/*     --destructive-foreground: #ffffff; !* White for destructive text *! */
+/*     --ring: #1E90FF; !* Bright blue for focus rings *! */
+/*     --warning: #FFD700; !* Gold for warnings *! */
+/*     --warning-foreground: #000000; !* Black for warning text *! */
+/*     --success: #32CD32; !* Lime green for success messages *! */
+/*     --success-foreground: #ffffff; !* White for success text *! */
+/*     --radius: 0.25rem; !* Border radius for rounded elements *! */
+/*   } */
+
+/*   .dark { */
+/*     --background: #121212; !* Dark background *! */
+/*     --foreground: #ffffff; !* White foreground for text *! */
+/*     --muted: #2c2c2c; !* Dark gray for muted text or elements *! */
+/*     --muted-foreground: #a8a8a8; !* Lighter gray for muted foreground *! */
+/*     --popover: #1e1e1e; !* Darker gray for popover backgrounds *! */
+/*     --popover-foreground: #ffffff; !* White for popover text *! */
+/*     --card: #1e1e1e; !* Darker gray for card backgrounds *! */
+/*     --card-foreground: #ffffff; !* White for card text *! */
+/*     --border: #333333; !* Dark gray for borders *! */
+/*     --input: #333333; !* Dark gray for input backgrounds *! */
+/*     --primary: #1E90FF; !* Primary bright blue *! */
+/*     --primary-foreground: #ffffff; !* White for primary text *! */
+/*     --secondary: #4682B4; !* Secondary subdued blue *! */
+/*     --secondary-foreground: #ffffff; !* White for secondary text *! */
+/*     --accent: #00BFFF; !* Accent blue *! */
+/*     --accent-foreground: #ffffff; !* White for accent text *! */
+/*     --destructive: #FF6347; !* Tomato red for destructive actions *! */
+/*     --destructive-foreground: #ffffff; !* White for destructive text *! */
+/*     --ring: #1E90FF; !* Bright blue for focus rings *! */
+/*     --warning: #FFD700; !* Gold for warnings *! */
+/*     --warning-foreground: #000000; !* Black for warning text *! */
+/*     --success: #32CD32; !* Lime green for success messages *! */
+/*     --success-foreground: #ffffff; !* White for success text *! */
+/*     --radius: 0.25rem; !* Border radius for rounded elements *! */
+/*   } */
+/* } */
+
+@layer base {
+  :root {
+    --background: #f5f5f5; /* Light gray background for a clean look */
+    --foreground: #333333; /* Dark gray for main text to reduce harsh contrast */
+    --muted: #e0e0e0; /* Lighter gray for muted elements */
+    --muted-foreground: #888888; /* Medium gray for muted text */
+    --popover: #ffffff; /* White for popover backgrounds */
+    --popover-foreground: #333333; /* Dark gray for popover text */
+    --card: #ffffff; /* White for card backgrounds */
+    --card-foreground: #333333; /* Dark gray for card text */
+    --border: #cccccc; /* Light gray for borders */
+    --input: #ffffff; /* White for input backgrounds */
+    --primary: #1E90FF; /* Bright blue for primary elements */
+    --primary-foreground: #ffffff; /* White for primary text */
+    --secondary: #87CEEB; /* Lighter blue for secondary elements */
+    --secondary-foreground: #ffffff; /* White for secondary text */
+    --accent: #FFA07A; /* Light salmon for accent elements */
+    --accent-foreground: #333333; /* Dark gray for accent text */
+    --destructive: #FF6347; /* Tomato red for destructive actions */
+    --destructive-foreground: #ffffff; /* White for destructive text */
+    --ring: #1E90FF; /* Bright blue for focus rings */
+    --warning: #FFD700; /* Gold for warnings */
+    --warning-foreground: #333333; /* Dark gray for warning text */
+    --success: #32CD32; /* Lime green for success messages */
+    --success-foreground: #ffffff; /* White for success text */
+    --radius: 0.5rem; /* Slightly larger border radius for friendlier rounded corners */
+  }
+
+  .dark {
+    --background: #181818; /* Dark background */
+    --foreground: #f5f5f5; /* Light gray for main text */
+    --muted: #2c2c2c; /* Dark gray for muted elements */
+    --muted-foreground: #aaaaaa; /* Light gray for muted text */
+    --popover: #1e1e1e; /* Dark gray for popover backgrounds */
+    --popover-foreground: #f5f5f5; /* Light gray for popover text */
+    --card: #1e1e1e; /* Dark gray for card backgrounds */
+    --card-foreground: #f5f5f5; /* Light gray for card text */
+    --border: #444444; /* Medium gray for borders */
+    --input: #333333; /* Dark gray for input backgrounds */
+    --primary: #1E90FF; /* Bright blue for primary elements */
+    --primary-foreground: #f5f5f5; /* Light gray for primary text */
+    --secondary: #87CEEB; /* Lighter blue for secondary elements */
+    --secondary-foreground: #181818; /* Dark background for secondary text */
+    --accent: #FFA07A; /* Light salmon for accent elements */
+    --accent-foreground: #181818; /* Dark background for accent text */
+    --destructive: #FF6347; /* Tomato red for destructive actions */
+    --destructive-foreground: #f5f5f5; /* Light gray for destructive text */
+    --ring: #1E90FF; /* Bright blue for focus rings */
+    --warning: #FFD700; /* Gold for warnings */
+    --warning-foreground: #181818; /* Dark background for warning text */
+    --success: #32CD32; /* Lime green for success messages */
+    --success-foreground: #181818; /* Dark background for success text */
+    --radius: 0.5rem; /* Slightly larger border radius for friendlier rounded corners */
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    @apply px-4;
+  }
+}

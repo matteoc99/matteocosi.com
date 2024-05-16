@@ -1,0 +1,70 @@
+@layer components {
+
+  .fill-button-primary {
+    @apply text-lg font-semibold transition-all duration-150 text-foreground rounded px-3 py-2 cursor-pointer;
+    background-color: transparent;
+    border: none;
+
+    &:hover {
+      @apply text-primary;
+    }
+  }
+
+  .flat-button-secondary {
+    @apply text-lg font-semibold transition-all duration-150 text-foreground rounded px-3 py-2 cursor-pointer;
+    background-color: transparent;
+    border: none;
+
+    &:hover {
+      @apply bg-secondary text-secondary-foreground;
+    }
+  }
+
+  .flat-button-primary {
+    @apply text-lg font-semibold transition-all duration-150 text-foreground rounded px-3 py-2 cursor-pointer;
+    background-color: transparent;
+    border: none;
+
+    &:hover {
+      @apply bg-primary text-primary-foreground;
+    }
+  }
+
+
+  .flat-link-secondary {
+    @apply text-lg font-semibold transition-all duration-150 text-foreground rounded px-3 py-2 cursor-pointer;
+    background-color: transparent;
+    border: none;
+    position: relative;
+
+    &:after {
+      @apply absolute block bg-secondary w-0 transition-all duration-200 left-0 bottom-0;
+      content: "";
+      height: 3px;
+    }
+
+    &:hover::after,
+    &.active::after {
+      width: 100%;
+    }
+  }
+
+
+  .flat-link-primary {
+    @apply text-lg font-semibold transition-all duration-150 text-foreground rounded px-3 py-2 cursor-pointer;
+    background-color: transparent;
+    border: none;
+    position: relative;
+
+    &:after {
+      @apply absolute block bg-primary w-0 transition-all duration-200 left-0 bottom-0;
+      content: "";
+      height: 3px;
+    }
+
+    &:hover::after,
+    &.active::after  {
+      width: 100%;
+    }
+  }
+}
