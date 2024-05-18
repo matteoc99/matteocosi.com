@@ -31,9 +31,6 @@ const watchIsDone = () => {
     if (isSmall) {
       isDone.value = true;
       y.value = 0;
-      setTimeout(() => {
-        y.value = 0;
-      }, 500)
     }
   })
 }
@@ -53,7 +50,7 @@ const restore = () => {
 <template>
   <header
     id="navbar"
-    class="w-full top-0 z-50 bg-background fixed transition-all duration-500 ease-in-out shadow-xl "
+    class="w-screen h-screen top-0 z-50 bg-background fixed transition-all duration-500 ease-in-out shadow-xl "
     :class="{small:isSmall}"
     ref="el"
   >
@@ -67,27 +64,26 @@ const restore = () => {
         </div>
       </div>
       <nav class="flex space-x-4" v-if="isSmall">
-        <a href="#home" class="flat-link-primary active">Home</a>
-        <a href="#contact" class="flat-link-primary">Contact</a>
-        <a href="#about" class="flat-link-primary">About</a>
+        <a href="/projects" class="flat-link-primary">About</a>
+        <a href="/contact" class="flat-link-primary">Contact</a>
         <div class="fill-button-primary" @click="toggleDark()">
           <Moon v-if="isDark"/>
           <Sun v-else/>
         </div>
       </nav>
     </div>
-    <ChevronDown
-      @click="isDone=true"
-      v-if="!isSmall"
-      class="h-12 w-12 text-primary absolute left-1/2 bottom-10 animate-bounce cursor-pointer"/>
-  </header>
+    <div class="h-12 w-full absolute bottom-10 flex justify-center ">
+      <ChevronDown
+        @click="isDone=true"
+        v-if="!isSmall"
+        class="h-12 w-12 text-primary animate-bounce cursor-pointer"/>
+
+    </div>
+   </header>
 </template>
 
 
 <style scoped>
-#navbar {
-  height: 100vh;
-}
 
 #navbar.small {
   height: 80px;
@@ -96,5 +92,6 @@ const restore = () => {
 .name {
   transition: transform 0.5s ease, font-size 0.5s ease;
 }
+
 
 </style>

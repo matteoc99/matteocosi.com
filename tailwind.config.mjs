@@ -1,10 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   darkMode: 'class',
-  content: [
-    "./index.html",
-    "./src/**/*.{vue,js,ts,jsx,tsx}",
-  ],
   theme: {
     container: {
       center: true,
@@ -61,4 +58,3 @@ export default {
   },
   plugins: [],
 }
-
