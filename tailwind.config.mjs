@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
+  content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   darkMode: 'class',
   theme: {
     container: {
@@ -52,6 +52,10 @@ export default {
         success: {
           DEFAULT: "var(--success)",
           foreground: "var(--success-foreground)",
+        },
+        navbar: {
+          DEFAULT: "var(--nav-bar)",
+          foreground: "var(--nav-bar-foreground)",
         },
       },
     }

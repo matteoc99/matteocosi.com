@@ -5,58 +5,63 @@
 @tailwind utilities;
 
 @layer base {
+
   :root {
-    --background: #f5f5f5; /* Light gray background for a clean look */
-    --foreground: #333333; /* Dark gray for main text to reduce harsh contrast */
-    --muted: #e0e0e0; /* Lighter gray for muted elements */
-    --muted-foreground: #888888; /* Medium gray for muted text */
+    --background: #f2f2f2; /* Light gray background for a clean look */
+    --foreground: #222222; /* Dark gray for main text to enhance readability */
+    --muted: #e6e6e6; /* Softer light gray for muted elements */
+    --muted-foreground: #555555; /* Darker gray for muted text */
     --popover: #ffffff; /* White for popover backgrounds */
-    --popover-foreground: #333333; /* Dark gray for popover text */
+    --popover-foreground: #222222; /* Dark gray for popover text */
     --card: #ffffff; /* White for card backgrounds */
-    --card-foreground: #333333; /* Dark gray for card text */
+    --card-foreground: #222222; /* Dark gray for card text */
     --border: #cccccc; /* Light gray for borders */
     --input: #ffffff; /* White for input backgrounds */
-    --primary: #1E90FF; /* Bright blue for primary elements */
+    --primary: #007acc; /* Darker blue for primary elements */
     --primary-foreground: #ffffff; /* White for primary text */
-    --secondary: #87CEEB; /* Lighter blue for secondary elements */
+    --secondary: #3399ff; /* Richer blue for secondary elements */
     --secondary-foreground: #ffffff; /* White for secondary text */
-    --accent: #FFA07A; /* Light salmon for accent elements */
-    --accent-foreground: #333333; /* Dark gray for accent text */
-    --destructive: #FF6347; /* Tomato red for destructive actions */
+    --accent: #ff6347; /* More vibrant tomato red for accent elements */
+    --accent-foreground: #ffffff; /* White for accent text */
+    --destructive: #d32f2f; /* Deep red for destructive actions */
     --destructive-foreground: #ffffff; /* White for destructive text */
-    --ring: #1E90FF; /* Bright blue for focus rings */
-    --warning: #FFD700; /* Gold for warnings */
-    --warning-foreground: #333333; /* Dark gray for warning text */
-    --success: #32CD32; /* Lime green for success messages */
+    --ring: #007acc; /* Darker blue for focus rings */
+    --warning: #ff9800; /* Strong amber for warnings */
+    --warning-foreground: #222222; /* Dark gray for warning text */
+    --success: #388e3c; /* Strong green for success messages */
     --success-foreground: #ffffff; /* White for success text */
     --radius: 0.5rem; /* Slightly larger border radius for friendlier rounded corners */
+    --nav-bar: #e0e0e0; /* Light gray for light mode nav bar background */
+    --nav-bar-foreground: #222222; /* Dark gray for nav bar text */
   }
 
   .dark {
-    --background: #181818; /* Dark background */
-    --foreground: #f5f5f5; /* Light gray for main text */
-    --muted: #2c2c2c; /* Dark gray for muted elements */
-    --muted-foreground: #aaaaaa; /* Light gray for muted text */
+    --background: #121212; /* True black for dark background */
+    --foreground: #e0e0e0; /* Light gray for main text */
+    --muted: #1e1e1e; /* Very dark gray for muted elements */
+    --muted-foreground: #888888; /* Lighter gray for muted text */
     --popover: #1e1e1e; /* Dark gray for popover backgrounds */
-    --popover-foreground: #f5f5f5; /* Light gray for popover text */
+    --popover-foreground: #e0e0e0; /* Light gray for popover text */
     --card: #1e1e1e; /* Dark gray for card backgrounds */
-    --card-foreground: #f5f5f5; /* Light gray for card text */
+    --card-foreground: #e0e0e0; /* Light gray for card text */
     --border: #444444; /* Medium gray for borders */
-    --input: #333333; /* Dark gray for input backgrounds */
-    --primary: #1E90FF; /* Bright blue for primary elements */
-    --primary-foreground: #f5f5f5; /* Light gray for primary text */
-    --secondary: #87CEEB; /* Lighter blue for secondary elements */
-    --secondary-foreground: #181818; /* Dark background for secondary text */
-    --accent: #FFA07A; /* Light salmon for accent elements */
-    --accent-foreground: #181818; /* Dark background for accent text */
-    --destructive: #FF6347; /* Tomato red for destructive actions */
-    --destructive-foreground: #f5f5f5; /* Light gray for destructive text */
-    --ring: #1E90FF; /* Bright blue for focus rings */
-    --warning: #FFD700; /* Gold for warnings */
-    --warning-foreground: #181818; /* Dark background for warning text */
-    --success: #32CD32; /* Lime green for success messages */
-    --success-foreground: #181818; /* Dark background for success text */
+    --input: #2a2a2a; /* Darker gray for input backgrounds */
+    --primary: #007acc; /* Darker blue for primary elements */
+    --primary-foreground: #e0e0e0; /* Light gray for primary text */
+    --secondary: #3399ff; /* Richer blue for secondary elements */
+    --secondary-foreground: #e0e0e0; /* Light gray for secondary text */
+    --accent: #ff6347; /* More vibrant tomato red for accent elements */
+    --accent-foreground: #e0e0e0; /* Light gray for accent text */
+    --destructive: #d32f2f; /* Deep red for destructive actions */
+    --destructive-foreground: #e0e0e0; /* Light gray for destructive text */
+    --ring: #007acc; /* Darker blue for focus rings */
+    --warning: #ff9800; /* Strong amber for warnings */
+    --warning-foreground: #121212; /* Black for warning text */
+    --success: #388e3c; /* Strong green for success messages */
+    --success-foreground: #121212; /* Black for success text */
     --radius: 0.5rem; /* Slightly larger border radius for friendlier rounded corners */
+    --nav-bar: #1e1e1e; /* Very dark gray for dark mode nav bar background */
+    --nav-bar-foreground: #e0e0e0; /* Light gray for nav bar text */
   }
 }
 

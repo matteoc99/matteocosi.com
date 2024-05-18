@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import {computed, ref, watchEffect}                     from 'vue';
-import {useDark, useToggle, useWindowScroll, watchOnce} from "@vueuse/core";
-import {ChevronDown, Moon, Sun}                         from 'lucide-vue-next';
+import {computed, ref, watchEffect}                                         from 'vue';
+import {useBrowserLocation, useDark, useToggle, useWindowScroll, watchOnce} from "@vueuse/core";
+import {ChevronDown, Moon, Sun}                                             from 'lucide-vue-next';
 
 const isDark = useDark({
   attribute: 'class',
@@ -11,14 +11,18 @@ const isDark = useDark({
 
 const toggleDark = useToggle(isDark)
 
+const location = useBrowserLocation()
+const {pathname} = location.value
 
-const isDone = ref(false);
+
+const isDone = ref(pathname !== '/');
 const shouldShrink = ref(false);
 
 const isSmall = computed(() => {
   return isDone.value || shouldShrink.value
 
 });
+
 
 const {y} = useWindowScroll({
   behavior: "smooth",
@@ -37,6 +41,11 @@ const watchIsDone = () => {
 
 watchIsDone()
 const restore = () => {
+  if(pathname && pathname!== '/'){
+    window.location.replace(window.location.href.replace(pathname,""))
+    return;
+  }
+
   isDone.value = false;
   y.value = 0;
 
@@ -50,7 +59,7 @@ const restore = () => {
 <template>
   <header
     id="navbar"
-    class="w-screen h-screen top-0 z-50 bg-background fixed transition-all duration-500 ease-in-out shadow-xl "
+    class="w-screen h-screen top-0 z-50 bg-navbar text-navbar-foreground fixed transition-all duration-500 ease-in-out shadow-xl "
     :class="{small:isSmall}"
     ref="el"
   >
@@ -64,7 +73,7 @@ const restore = () => {
         </div>
       </div>
       <nav class="flex space-x-4" v-if="isSmall">
-        <a href="/projects" class="flat-link-primary">About</a>
+        <a href="/projects" class="flat-link-primary">Projects</a>
         <a href="/contact" class="flat-link-primary">Contact</a>
         <div class="fill-button-primary" @click="toggleDark()">
           <Moon v-if="isDark"/>
@@ -79,7 +88,7 @@ const restore = () => {
         class="h-12 w-12 text-primary animate-bounce cursor-pointer"/>
 
     </div>
-   </header>
+  </header>
 </template>
 
 
