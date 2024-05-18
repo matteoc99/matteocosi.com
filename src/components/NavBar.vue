@@ -85,7 +85,7 @@ const links = [
            class="flex items-center h-full cursor-pointer"
         >
           <span
-            :class="[pathname === path ? 'active':'']"
+            :class="[pathname?.startsWith(path) ? 'active':'']"
             class="flat-link-primary h-fit"
           >
           {{ name }}
