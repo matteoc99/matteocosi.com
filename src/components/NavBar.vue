@@ -41,8 +41,8 @@ const watchIsDone = () => {
 
 watchIsDone()
 const restore = () => {
-  if(pathname && pathname!== '/'){
-    window.location.replace(window.location.href.replace(pathname,""))
+  if (pathname && pathname !== '/') {
+    window.location.replace(window.location.href.replace(pathname, ""))
     return;
   }
 
@@ -54,6 +54,13 @@ const restore = () => {
   }, 500)
 
 }
+
+
+const links = [
+  {path: "/projects", name: "Projects"},
+  {path: "/contact", name: "Contact"}
+]
+
 </script>
 
 <template>
@@ -72,10 +79,20 @@ const restore = () => {
           Matteo Cosi
         </div>
       </div>
-      <nav class="flex space-x-4" v-if="isSmall">
-        <a href="/projects" class="flat-link-primary">Projects</a>
-        <a href="/contact" class="flat-link-primary">Contact</a>
-        <div class="fill-button-primary" @click="toggleDark()">
+      <nav class="flex space-x-4 h-full items-center" v-if="isSmall">
+        <template v-for="{path, name} in links" :key="path">
+        <a :href="path"
+           class="flex items-center h-full cursor-pointer"
+        >
+          <span
+            :class="[pathname === path ? 'active':'']"
+            class="flat-link-primary h-fit"
+          >
+          {{ name }}
+          </span>
+        </a>
+        </template>
+        <div class="fill-button-primary h-fit" @click="toggleDark()">
           <Moon v-if="isDark"/>
           <Sun v-else/>
         </div>
