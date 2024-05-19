@@ -63,8 +63,16 @@
     }
 
     &:hover::after,
-    &.active::after  {
+    &.active::after {
       width: 100%;
     }
   }
+
+  .flat-link:hover {
+    .flat-link-secondary::after,
+    .flat-link-primary::after {
+      width: 100%;
+    }
+  }
+
 }
