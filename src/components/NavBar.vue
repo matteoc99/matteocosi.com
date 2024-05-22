@@ -39,8 +39,8 @@ watch(isSwiping, () => {
 })
 
 const links = [
-  {path: '/projects', name: 'Projects'},
-  {path: '/contact', name: 'Contact'},
+  // {path: '/projects', name: 'Projects'},
+  // {path: '/contact', name: 'Contact'},
 ];
 
 </script>
@@ -51,8 +51,9 @@ const links = [
     class="w-screen top-0 z-10 bg-navbar text-navbar-foreground fixed transition-all duration-700 ease-in-out shadow-xl"
     :class="[isSmall ? 'h-20': 'h-screen']"
   >
-    <div class="container mx-auto flex justify-between items-center px-4 h-full w-full">
-      <div class="w-full h-full flex items-center gap-4 ">
+    <div class="container mx-auto flex justify-between px-4 h-full w-full">
+      <div class="w-full h-full flex items-center  content-center gap-4"
+      :class="[isSmall?'flex-nowrap':'flex-wrap justify-center']">
         <Avatar :isSmall src="/img/me.jpeg"/>
         <div>
           <div v-if="!isSmall &&isSmall">
@@ -85,14 +86,15 @@ const links = [
           <Sun v-else/>
         </div>
       </nav>
-      <div class="h-12 w-full absolute bottom-10 flex justify-center" v-else>
-        <ChevronDown
-          @click="isSmall = true"
-          class="h-12 w-12 text-primary animate-bounce cursor-pointer"
-        />
-      </div>
+
     </div>
 
+    <div class="h-12 w-full absolute bottom-10 flex justify-center" v-if="!isSmall">
+      <ChevronDown
+        @click="isSmall = true"
+        class="h-12 w-12 text-primary animate-bounce cursor-pointer"
+      />
+    </div>
   </header>
 </template>
 
