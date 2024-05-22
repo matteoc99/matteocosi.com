@@ -11,6 +11,40 @@ export default {
       },
     },
     extend: {
+      keyframes: {
+        focusin: {
+          '0%': {
+            transform: 'scale(1)',
+            transformOrigin: '0% 0%',
+          },
+          '10%': {
+            transform: 'scale(1)',
+            transformOrigin: '30% 4%',
+          },
+          '20%': {
+            transform: 'scale(1)',
+            transformOrigin: '61% 8%',
+          },
+          '100%': {
+            transform: 'scale(4)',
+            transformOrigin: '61% 8%',
+          },
+        },
+        shrink: {
+          '0%': {
+            width: '15rem',
+            height: '15rem',
+          },
+          '100%': {
+            width: '3.5rem',
+            height: '3.5rem',
+          }
+        }
+      },
+      animation: {
+        focusin: 'focusin 0.7s ease forwards',
+        shrink: 'shrink 0.4s ease forwards',
+      },
       colors: {
         border: "var(--border)",
         input: "var(--input)",
