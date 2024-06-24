@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import {type Ref, ref, watch}                             from 'vue';
-import {useBrowserLocation, useDark, useSwipe, useToggle} from '@vueuse/core';
-import {ChevronDown, Moon, Sun}                           from 'lucide-vue-next';
-import {useWheel}                                         from "@vueuse/gesture";
-import Avatar                                             from "./Avatar.vue";
+import {type Ref, ref, watch}                                                                  from 'vue';
+import {breakpointsTailwind, useBreakpoints, useBrowserLocation, useDark, useSwipe, useToggle} from '@vueuse/core';
+import {ChevronDown, Menu, Moon, Sun}                                                          from 'lucide-vue-next';
+import {useWheel}                                                                              from "@vueuse/gesture";
+import Avatar                                                                                  from "./Avatar.vue";
+import DropMenu                                                                                from "./DropMenu.vue";
 
 const isDark = useDark({
   attribute: 'class',
@@ -16,6 +17,8 @@ const navbar: Ref<HTMLElement | null> = ref(null);
 
 const {isSwiping, direction} = useSwipe(navbar)
 
+const breakpoints = useBreakpoints(breakpointsTailwind)
+const gtMd = breakpoints.greater('sm')
 
 useWheel(({wheeling}) => {
   if (wheeling) {
@@ -39,8 +42,8 @@ watch(isSwiping, () => {
 })
 
 const links = [
-  // {path: '/projects', name: 'Projects'},
-  // {path: '/contact', name: 'Contact'},
+  {path: '/projects', name: 'Projects'},
+  {path: '/contact', name: 'Contact'},
 ];
 
 </script>
@@ -53,7 +56,7 @@ const links = [
   >
     <div class="container mx-auto flex justify-between px-4 h-full w-full">
       <div class="w-full h-full flex items-center  content-center gap-4"
-      :class="[isSmall?'flex-nowrap':'flex-wrap justify-center']">
+           :class="[isSmall?'flex-nowrap':'flex-wrap justify-center']">
         <Avatar :isSmall src="/img/me.jpeg"/>
         <div>
           <div v-if="!isSmall &&isSmall">
@@ -70,8 +73,8 @@ const links = [
           </a>
         </div>
       </div>
-      <nav class="flex space-x-4 h-full items-center" v-if="isSmall">
-        <template v-for="{ path, name } in links" :key="path">
+      <nav class="flex space-x-1 h-full items-center" v-if="isSmall">
+        <template v-for="{ path, name } in links" :key="path" v-if="gtMd">
         <a :href="path" class="flex items-center h-full cursor-pointer flat-link z-50">
             <span
               :class="[pathname?.startsWith(path) ? 'active' : '']"
@@ -80,6 +83,31 @@ const links = [
               {{ name }}
             </span>
         </a>
+        </template>
+        <template v-else>
+        <div class="fill-button-primary h-fit">
+          <DropMenu>
+            <template v-slot:trigger>
+            <Menu/>
+            </template>
+            <template v-slot:default>
+            <template v-for="{ path, name } in links" :key="'mobile' + path">
+            <DropdownMenuItem>
+              <a :href="path" class=" h-full w-fully cursor-pointer flat-link z-50">
+            <span
+              :class="[pathname?.startsWith(path) ? 'active' : '']"
+              class="flat-link-primary h-fit inline-block"
+            >
+              {{ name }}
+            </span>
+              </a>
+            </DropdownMenuItem>
+
+            </template>
+            </template>
+          </DropMenu>
+
+        </div>
         </template>
         <div class="fill-button-primary h-fit" @click="toggleDark()">
           <Moon v-if="isDark"/>

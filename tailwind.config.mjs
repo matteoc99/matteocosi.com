@@ -1,7 +1,15 @@
+import animate from "tailwindcss-animate"
+
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
-  darkMode: 'class',
+  darkMode: ["class"],
+  safelist: ["dark"],
+  prefix: "",
+  
+    content: [
+      './src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}',
+    ],
+  
   theme: {
     container: {
       center: true,
@@ -11,40 +19,6 @@ export default {
       },
     },
     extend: {
-      keyframes: {
-        focusin: {
-          '0%': {
-            transform: 'scale(1)',
-            transformOrigin: '0% 0%',
-          },
-          '10%': {
-            transform: 'scale(1)',
-            transformOrigin: '30% 4%',
-          },
-          '20%': {
-            transform: 'scale(1)',
-            transformOrigin: '61% 8%',
-          },
-          '100%': {
-            transform: 'scale(4)',
-            transformOrigin: '61% 8%',
-          },
-        },
-        shrink: {
-          '0%': {
-            width: '15rem',
-            height: '15rem',
-          },
-          '100%': {
-            width: '3.5rem',
-            height: '3.5rem',
-          }
-        }
-      },
-      animation: {
-        focusin: 'focusin 0.7s ease forwards',
-        shrink: 'shrink 0.4s ease forwards',
-      },
       colors: {
         border: "var(--border)",
         input: "var(--input)",
@@ -92,7 +66,67 @@ export default {
           foreground: "var(--nav-bar-foreground)",
         },
       },
-    }
+      borderRadius: {
+      	xl: "calc(var(--radius) + 4px)",
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
+      },
+      keyframes: {
+        "accordion-down": {
+          from: { height: 0 },
+          to: { height: "var(--radix-accordion-content-height)" },
+        },
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: 0 },
+        },
+        "collapsible-down": {
+          from: { height: 0 },
+          to: { height: 'var(--radix-collapsible-content-height)' },
+        },
+        "collapsible-up": {
+          from: { height: 'var(--radix-collapsible-content-height)' },
+          to: { height: 0 },
+        },
+        focusin: {
+          '0%': {
+            transform: 'scale(1)',
+            transformOrigin: '0% 0%',
+          },
+          '10%': {
+            transform: 'scale(1)',
+            transformOrigin: '30% 4%',
+          },
+          '20%': {
+            transform: 'scale(1)',
+            transformOrigin: '61% 8%',
+          },
+          '100%': {
+            transform: 'scale(4)',
+            transformOrigin: '61% 8%',
+          },
+        },
+        shrink: {
+          '0%': {
+            width: '15rem',
+            height: '15rem',
+          },
+          '100%': {
+            width: '3.5rem',
+            height: '3.5rem',
+          }
+        }
+      },
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
+        "collapsible-down": "collapsible-down 0.2s ease-in-out",
+        "collapsible-up": "collapsible-up 0.2s ease-in-out",
+        focusin: 'focusin 0.7s ease forwards',
+        shrink: 'shrink 0.4s ease forwards',
+      },
+    },
   },
-  plugins: [],
+  plugins: [animate],
 }
